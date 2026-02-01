@@ -19,7 +19,7 @@ class WebSocketManager {
    * Initialize WebSocket connection
    */
   connect() {
-    this.socket = io('http://localhost:3000');
+    this.socket = io();
 
     // Connection events
     this.socket.on('connect', () => {
