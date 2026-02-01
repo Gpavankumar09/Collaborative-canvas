@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f0f0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    background-color: white;
+    cursor: crosshair;
+}
+
+/* Toolbar */
+.toolbar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 500px;
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.toolbar-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toolbar-group select,
+.toolbar-group input[type="color"],
+.toolbar-group input[type="range"] {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.toolbar-group input[type="color"] {
+    width: 40px;
+    height: 35px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.toolbar-group input[type="range"] {
+    width: 80px;
+}
+
+button {
+    padding: 8px 14px;
+    background: #4ECDC4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #3ab8b0;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* User Panel */
+.user-panel {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    min-width: 150px;
+}
+
+.user-panel h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.online-count {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    padding: 6px;
+    background: #f5f5f5;
+    border-radius: 4px;
+}
+
+.user-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.user-id {
+    font-family: 'Courier New', monospace;
+    color: #666;
+}
+
+/* Info Panel */
+.info-panel {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    font-size: 12px;
+    color: #666;
+}
+
+.status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4ECDC4;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+/* Cursor Indicators */
+.remote-cursor {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    z-index: 99;
+}
+
+.cursor-pointer {
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-radius: 50%;
+    position: relative;
+}
+
+.cursor-pointer::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    border-radius: 50%;
+}
+
+.cursor-label {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background: currentColor;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0.9;
+}
